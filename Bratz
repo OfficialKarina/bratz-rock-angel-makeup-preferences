@@ -6,7 +6,7 @@
     <title>Bratz Rock Angel - Makeup Preferences</title>
     <style>
         body {
-            font-family: 'Arial, sans-serif';
+            font-family: 'Arial, sans-serif'; /* Corrected font-family value */
             background-color: #f7e7f3;
             color: #333;
             margin: 0;
@@ -96,11 +96,4 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p>Email: your-email@example.com</p>
-        </section>
-    </div>
-    <footer>
-        <p>&copy; 2024 Bratz Rock Angel</p>
-    </footer>
-</body>
-</html>
+            <p
