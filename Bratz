@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bratz Rock Angel - Makeup Preferences</title>
+    <style>
+        body {
+            font-family: 'Arial, sans-serif';
+            background-color: #f7e7f3;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #f06292;
+            color: #fff;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .affirmation {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            text-decoration: none;
+            color: #f06292;
+            font-size: 1.2em;
+            margin: 0 10px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .store-links {
+            margin: 20px 0;
+        }
+        .store-links a {
+            display: block;
+            text-decoration: none;
+            color: #f06292;
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        footer {
+            background-color: #f06292;
+            color: #fff;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const affirmations = [
+                "You are strong and capable.",
+                "You are beautiful inside and out.",
+                "You can achieve anything you set your mind to.",
+                "You are loved and appreciated.",
+                "You bring light to those around you."
+            ];
+            const affirmationElement = document.querySelector('.affirmation');
+            const randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
+            affirmationElement.textContent = randomAffirmation;
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Bratz Rock Angel - Makeup Preferences</h1>
+        <div class="affirmation"></div>
+    </header>
+    <nav>
+        <a href="#preferences">My Preferences</a>
+        <a href="#stores">Stores</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="content">
+        <section id="preferences">
+            <h2>My Makeup Preferences</h2>
+            <p>Save your favorite makeup products and preferences here.</p>
+            <!-- Placeholder for preferences, could be a form or list -->
+        </section>
+        <section id="stores" class="store-links">
+            <h2>Favorite Stores</h2>
+            <a href="https://www.ulta.com" target="_blank">Ulta</a>
+            <a href="https://www.sephora.com" target="_blank">Sephora</a>
+            <a href="https://www.victoriassecret.com" target="_blank">Victoria's Secret</a>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: your-email@example.com</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Bratz Rock Angel</p>
+    </footer>
+</body>
+</html>
