@@ -96,4 +96,11 @@
         </section>
         <section id="contact">
             <h2>Contact</h2>
-            <p
+            <p>Email: your-email@example.com</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Bratz Rock Angel</p>
+    </footer>
+</body>
+</html>
