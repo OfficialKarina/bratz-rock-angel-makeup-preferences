@@ -6,7 +6,7 @@
     <title>Your Makeup World</title>
     <style>
         body {
-            font-family: 'Arial, sans-serif'; /* Corrected font-family value */
+            font-family: 'Arial, sans-serif';
             background-color: #f7e7f3;
             color: #333;
             margin: 0;
@@ -38,10 +38,10 @@
         .content {
             padding: 20px;
         }
-        .store-links {
+        .store-links, .preferences-list {
             margin: 20px 0;
         }
-        .store-links a {
+        .store-links a, .preferences-list a {
             display: block;
             text-decoration: none;
             color: #f06292;
@@ -56,6 +56,9 @@
             bottom: 0;
             width: 100%;
         }
+        .form-group {
+            margin: 15px 0;
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -69,6 +72,47 @@
             const affirmationElement = document.querySelector('.affirmation');
             const randomAffirmation = affirmations[Math.floor(Math.random() * affirmations.length)];
             affirmationElement.textContent = randomAffirmation;
+
+            const preferencesForm = document.getElementById('preferences-form');
+            const storesForm = document.getElementById('stores-form');
+            const preferencesList = document.getElementById('preferences-list');
+            const storesList = document.getElementById('stores-list');
+
+            const loadLinks = (key, listElement) => {
+                const links = JSON.parse(localStorage.getItem(key)) || [];
+                listElement.innerHTML = '';
+                links.forEach(link => {
+                    const a = document.createElement('a');
+                    a.href = link;
+                    a.target = '_blank';
+                    a.textContent = link;
+                    listElement.appendChild(a);
+                });
+            };
+
+            const saveLink = (key, inputElement, listElement) => {
+                const link = inputElement.value;
+                if (link) {
+                    const links = JSON.parse(localStorage.getItem(key)) || [];
+                    links.push(link);
+                    localStorage.setItem(key, JSON.stringify(links));
+                    inputElement.value = '';
+                    loadLinks(key, listElement);
+                }
+            };
+
+            preferencesForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                saveLink('preferences', document.getElementById('preferences-input'), preferencesList);
+            });
+
+            storesForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                saveLink('stores', document.getElementById('stores-input'), storesList);
+            });
+
+            loadLinks('preferences', preferencesList);
+            loadLinks('stores', storesList);
         });
     </script>
 </head>
@@ -86,17 +130,27 @@
         <section id="preferences">
             <h2>My Makeup Preferences</h2>
             <p>Save your favorite makeup products and preferences here.</p>
-            <!-- Placeholder for preferences, could be a form or list -->
+            <form id="preferences-form">
+                <div class="form-group">
+                    <input type="url" id="preferences-input" placeholder="Enter URL" required>
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+            <div id="preferences-list" class="preferences-list"></div>
         </section>
         <section id="stores" class="store-links">
             <h2>Favorite Stores</h2>
-            <a href="https://www.ulta.com" target="_blank">Ulta</a>
-            <a href="https://www.sephora.com" target="_blank">Sephora</a>
-            <a href="https://www.victoriassecret.com" target="_blank">Victoria's Secret</a>
+            <form id="stores-form">
+                <div class="form-group">
+                    <input type="url" id="stores-input" placeholder="Enter URL" required>
+                    <button type="submit">Save</button>
+                </div>
+            </form>
+            <div id="stores-list"></div>
         </section>
     </div>
     <footer>
-        <p>&copy; 2024 Bratz Rock Angel</p>
+        <p>&copy; 2024 Your Makeup World</p>
     </footer>
 </body>
 </html>
